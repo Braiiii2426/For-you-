@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create a Message 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <main class="screen">
+
+        <div class="create-card">
+
+            <div class="label">
+                CREATE A MESSAGE
+            </div>
+
+            <h2>
+                Write something.
+            </h2>
+
+            <textarea
+                id="messageInput"
+                maxlength="1000"
+                placeholder="Write your message here...">
+            </textarea>
+
+            <div class="counter">
+                <span id="counter">0</span>/1000
+            </div>
+
+            <button
+                id="createButton"
+                class="main-button">
+
+                Create Link
+
+            </button>
+
+            <div
+                id="result"
+                class="result hidden">
+
+                <p>Your message link:</p>
+
+                <input
+                    id="link"
+                    readonly>
+
+                <button
+                    id="copyButton"
+                    class="copy-button">
+
+                    Copy Link
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const input =
+            document.getElementById("messageInput");
+
+        const counter =
+            document.getElementById("counter");
+
+        const createButton =
+            document.getElementById("createButton");
+
+        const result =
+            document.getElementById("result");
+
+        const link =
+            document.getElementById("link");
+
+        const copyButton =
+            document.getElementById("copyButton");
+
+
+        input.addEventListener("input", () => {
+
+            counter.textContent =
+                input.value.length;
+
+        });
+
+
+        createButton.addEventListener("click", () => {
+
+            const message =
+                input.value.trim();
+
+
+            if (!message) {
+
+                alert("Write a message first!");
+
+                return;
+
+            }
+
+
+            const encodedMessage =
+                encodeURIComponent(message);
+
+
+            const newLink =
+                window.location.origin +
+                window.location.pathname
+                    .replace("create.html", "") +
+                "?message=" +
+                encodedMessage;
+
+
+            link.value = newLink;
+
+            result.classList.remove("hidden");
+
+        });
+
+
+        copyButton.addEventListener("click", async () => {
+
+            await navigator.clipboard.writeText(
+                link.value
+            );
+
+            copyButton.textContent =
+                "Copied ✓";
+
+        });
+
+    </script>
+
+</body>
+
+</html>
