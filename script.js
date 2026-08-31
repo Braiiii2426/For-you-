@@ -26,7 +26,7 @@ function showMessage() {
     if (!customMessage) {
 
         message.textContent =
-            "This is where your message will appear.";
+            "HOY BRYNELLE, mag-aral ka ng mabuti kung gusto mong maging kadete tsaka may uuwiang magandang asawa HAHAHAHA.";
 
         return;
     }
