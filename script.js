@@ -26,7 +26,7 @@ function showMessage() {
     if (!customMessage) {
 
         message.textContent =
-            "HOY KIM, pwede ka bang lunukin? Ansarap mo raw ilulam sabi ng mga shs e. 11-STEM 101-A raw- pm mo'ko kung g ka, loveu.";
+            "HOY BRYNELLE, mag-aral ka ng mabuti kung gusto mong maging kadete tsaka may uuwiang magandang asawa HAHAHAHA.";
 
         return;
     }
